@@ -126,25 +126,19 @@ export const ProductModal: React.FC<ProductModalProps> = ({
 
             {/* LEFT COLUMN: Photo / Visual container */}
             <div className="w-full md:w-1/2 h-56 md:h-full bg-gradient-to-br from-[#eff9e9] via-[#e2f5df] to-[#d4eed2] flex flex-col items-center justify-center p-6 relative flex-shrink-0 overflow-hidden select-none">
-              <div className="absolute w-72 h-72 rounded-full bg-white/40 filter blur-xl pointer-events-none -top-10 -left-10" />
-              <div className="absolute w-64 h-64 rounded-full bg-[var(--lime)]/15 filter blur-2xl pointer-events-none -bottom-10 -right-10" />
+              <div className="absolute w-72 h-72 rounded-full bg-white/40 filter blur-xl pointer-events-none" />
 
               <div className="relative z-10 w-full h-full flex items-center justify-center">
                 {hasImage ? (
-                  <motion.img
+                  <img
                     src={product.image}
                     alt={productName}
-                    className="max-h-full max-w-full object-contain drop-shadow-lg"
-                    initial={{ scale: 0.9, opacity: 0 }}
-                    animate={{ scale: 1, opacity: 1 }}
-                    transition={{ delay: 0.1 }}
+                    className="max-h-full max-w-full object-contain drop-shadow-md"
                     onError={() => setImageError(true)}
                   />
                 ) : (
-                  <div className="flex flex-col items-center justify-center gap-3">
-                    <div className="w-32 h-32 rounded-3xl bg-white/80 shadow-md flex items-center justify-center border border-white/60">
-                      {getCategoryIcon(product.category, product.id)}
-                    </div>
+                  <div className="flex flex-col items-center justify-center gap-3 text-center">
+                    {getCategoryIcon(product.category, product.id)}
                     <span className="text-[11px] font-extrabold uppercase tracking-widest text-[var(--forest)]/70">
                       ADCOMAX Catalogue
                     </span>

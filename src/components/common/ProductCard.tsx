@@ -1,41 +1,13 @@
 import React, { useState } from 'react';
 import { motion } from 'framer-motion';
 import type { ProductItem } from '../../types';
-import {
-  ArrowUpRightIcon,
-  ActivityIcon,
-  StarIcon,
-  ShieldIcon,
-  WaterIcon,
-  Shield1Icon,
-  RepairIcon,
-  FlashIcon,
-  DiamondIcon,
-  GuardIcon,
-  SettingsIcon,
-} from '@astraicons/react/linear';
+import { ArrowUpRightIcon } from '@astraicons/react/linear';
 
 interface ProductCardProps {
   product: ProductItem;
   onRequestDetails?: (productName: string) => void;
   onOpenModal?: (product: ProductItem) => void;
 }
-
-const getCategoryIcon = (category: string, id: string) => {
-  const cat = category.toLowerCase();
-  if (cat.includes('abrasive')) return <ActivityIcon className="w-10 h-10 text-[var(--forest)]" />;
-  if (cat.includes('polishing') || cat.includes('detailing')) return <StarIcon className="w-10 h-10 text-[var(--green)]" />;
-  if (cat.includes('masking') || cat.includes('protection')) {
-    if (id.includes('tape')) return <Shield1Icon className="w-10 h-10 text-[var(--teal)]" />;
-    return <ShieldIcon className="w-10 h-10 text-[var(--teal)]" />;
-  }
-  if (cat.includes('surface prep') || cat.includes('surface care')) return <WaterIcon className="w-10 h-10 text-[var(--blue)]" />;
-  if (cat.includes('protective') || cat.includes('wear')) return <GuardIcon className="w-10 h-10 text-[var(--forest)]" />;
-  if (cat.includes('power')) return <FlashIcon className="w-10 h-10 text-[var(--lime)]" />;
-  if (cat.includes('ceramic') || cat.includes('automotive')) return <DiamondIcon className="w-10 h-10 text-[var(--green)]" />;
-  if (cat.includes('tool') || cat.includes('burr')) return <RepairIcon className="w-10 h-10 text-[var(--forest)]" />;
-  return <SettingsIcon className="w-10 h-10 text-[var(--forest)]" />;
-};
 
 export const ProductCard: React.FC<ProductCardProps> = ({
   product,
